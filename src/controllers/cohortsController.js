@@ -4,6 +4,7 @@ const {
     Students,
     Assignments,
 } = require('../models/index')
+const logger = require('../utils/logger')
 
 const addAssignmentToCohort = async (req, res) => {
     try {
@@ -26,7 +27,7 @@ const addAssignmentToCohort = async (req, res) => {
 
         return res.status(201).send(newLinkedData)
     } catch (err) {
-        console.log(err)
+        logger.error(err)
         return res
             .status(500)
             .send('There was a problem with the database. Try again later.')
@@ -59,7 +60,7 @@ const getAllCohorts = async (req, res) => {
 
         return res.status(200).send(allCohorts)
     } catch (err) {
-        console.log(err)
+        logger.error(err)
         return res
             .status(500)
             .send('There was a problem with the database. Try again later.')

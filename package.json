@@ -5,19 +5,26 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon index.js",
+        "dev": "cd src && nodemon index.js",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:check": "eslint .",
-        "lint:fix": "eslint --fix ."
+        "lint:fix": "eslint --fix .",
+        "docker:db:up": "docker compose -f docker/devDB/docker-compose.yml up -d",
+        "docker:db:down": "docker compose -f docker/devDB/docker-compose.yml down"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
         "express": "^4.18.1",
+        "fs": "^0.0.1-security",
+        "glob": "^8.0.3",
+        "morgan": "^1.10.0",
         "mysql2": "^2.3.3",
-        "sequelize": "^6.20.1"
+        "path": "^0.12.7",
+        "sequelize": "^6.20.1",
+        "winston": "^3.7.2"
     },
     "devDependencies": {
         "eslint": "^8.16.0",

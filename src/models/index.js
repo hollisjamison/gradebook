@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize')
+const logger = require('../utils/logger')
 const StudentsModel = require('./StudentsModel')
 const InstructorsModel = require('./InstructorsModel')
 const AssignmentsModel = require('./AssignmentsModel')
@@ -14,6 +15,7 @@ const connection = new Sequelize(
     {
         host: 'localhost',
         dialect: 'mysql',
+        logging: (message) => logger.info(message)
     }
 )
 
@@ -39,11 +41,15 @@ const CohortsInstructors = CohortsInstructorsModel(
 Cohorts.hasMany(Students)
 Students.belongsTo(Cohorts)
 
+// Assignments to Students: many to many, through grades!
+Assignments.belongsToMany(Students, { through: Grades })
+Students.belongsToMany(Assignments, { through: Grades })
+
 // Students to Grades: one to many
 Students.hasMany(Grades)
 Grades.belongsTo(Students)
 
-// Assignments to Grades: one to many
+// // Assignments to Grades: one to many
 Assignments.hasMany(Grades)
 Grades.belongsTo(Assignments)
 
