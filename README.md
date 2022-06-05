@@ -23,6 +23,9 @@ This is an example application for Javascript students. It is an API for a boot 
     npm run docker:db:init
     npm run dev
 
+## Data Map (ERD)
+![ERD](/image.png?raw=true "ERD")
+
 ## API Endpoints
 ### /api/instructors
 **GET /api/instructors**\
