@@ -1,5 +1,5 @@
-const express = require('express');
-const gradesRouter = express.Router();
+const express = require('express')
+const gradesRouter = express.Router()
 const Controllers = require('../controllers/index')
 
 gradesRouter.get('/id/:searchedId', Controllers.getGradeById)
@@ -13,4 +13,4 @@ gradesRouter.put('/', Controllers.updateGrade)
 
 gradesRouter.delete('/delete/:id', Controllers.deleteGrade)
 
-module.exports = {gradesRouter}
+module.exports = { gradesRouter }

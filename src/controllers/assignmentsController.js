@@ -211,24 +211,24 @@ const updateAssignment = async (req, res) => {
 }
 
 const deleteAssignment = async (req, res) => {
-  try {
-      const { id } = req.params
+    try {
+        const { id } = req.params
 
-      if (!id)
-          return res
-              .status(400)
-              .send({ message: 'Please provide an id to delete' })
+        if (!id)
+            return res
+                .status(400)
+                .send({ message: 'Please provide an id to delete' })
 
-      await Models.Assignments.destroy({ where: { id: id } })
+        await Models.Assignments.destroy({ where: { id: id } })
 
-      const returnMessage = `ID: ${id} successfully deleted.`
-      return res.status(200).send(returnMessage)
-  } catch (err) {
-      logger.error(err)
-      return res
-          .status(500)
-          .send('There was a problem with the database. Try again later.')
-  }
+        const returnMessage = `ID: ${id} successfully deleted.`
+        return res.status(200).send(returnMessage)
+    } catch (err) {
+        logger.error(err)
+        return res
+            .status(500)
+            .send('There was a problem with the database. Try again later.')
+    }
 }
 
 module.exports = {
@@ -238,5 +238,5 @@ module.exports = {
     getAssignmentsByStudent,
     getAssignmentsByCohort,
     updateAssignment,
-    deleteAssignment
+    deleteAssignment,
 }

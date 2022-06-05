@@ -12,9 +12,9 @@ app.use(express.json())
 
 app.use('/api/grades', Routers.gradesRouter)
 app.use('/api/assignments', Routers.assignmentsRouter)
-// app.use('/api/cohorts', Routers.cohortsRouter)
-// app.use('/api/instructors', Routers.instructorsRouter)
-// app.use
+app.use('/api/cohorts', Routers.cohortsRouter)
+app.use('/api/instructors', Routers.instructorsRouter)
+// app.use('/api/students', Routers.studentsRouter)
 
 app.all('*', (req, res) => res.status(404).send('Not found!'))
 

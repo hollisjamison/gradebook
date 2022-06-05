@@ -7,11 +7,12 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "cd src && nodemon index.js",
         "format:check": "prettier --check .",
-        "format:write": "prettier --write .",
+        "format:fix": "prettier --write .",
         "lint:check": "eslint .",
         "lint:fix": "eslint --fix .",
         "docker:db:up": "docker compose -f docker/devDB/docker-compose.yml up -d",
-        "docker:db:down": "docker compose -f docker/devDB/docker-compose.yml down"
+        "docker:db:down": "docker compose -f docker/devDB/docker-compose.yml down",
+        "docker:db:init": "node docker/devDB/db-init.js"
     },
     "keywords": [],
     "author": "",

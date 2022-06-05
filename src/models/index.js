@@ -15,7 +15,7 @@ const connection = new Sequelize(
     {
         host: 'localhost',
         dialect: 'mysql',
-        logging: (message) => logger.info(message)
+        logging: (message) => logger.info(message),
     }
 )
 

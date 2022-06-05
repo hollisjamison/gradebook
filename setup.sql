@@ -2,6 +2,8 @@ drop database if exists gradebook;
 
 CREATE DATABASE gradebook;
 
+DROP USER IF EXISTS 'gradebook_user'@'%';
+
 CREATE USER IF NOT EXISTS 'gradebook_user'@'%' IDENTIFIED BY 'gradebookP@ss';
 
 GRANT ALL ON gradebook.* TO 'gradebook_user'@'%';
@@ -99,11 +101,11 @@ CREATE TABLE grades (
   PRIMARY KEY(id)
 );
 
-insert into instructors(firstName, lastName, githubUser) 
+insert into instructors(firstName, lastName, githubUser)
 values ("Hollis", "Jamison", "hollisjamison");
 
-insert into assignments(name, description, type, githubURL) 
-values 
+insert into assignments(name, description, type, githubURL)
+values
 ("order-book", "Create a bitcoin order book.", "Project", "https://github.com/stackeducation/order-book"),
 ("tdd-strict-equal", "Implement a function that mimics a === sign in JS", "Homework", "https://github.com/stackeducation/tdd-strict-equal"),
 ("hazy-calculator", "Implement a hazy calculator", "Homework", "https://github.com/stackeducation/hazy-calculator")
@@ -112,13 +114,13 @@ values
 insert into cohorts(year, season) values (2022, "Fall");
 
 insert into cohortsAssignments(cohortId, assignmentId)
-values 
+values
 (1,1),
 (1,2)
 ;
 
 insert into cohortsInstructors(cohortId, instructorId)
-values 
+values
 (1,1)
 ;
 

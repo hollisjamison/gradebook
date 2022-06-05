@@ -2,10 +2,11 @@ const glob = require('glob')
 
 let allRouters = {}
 
-const syncTargetFolder = `${__dirname}/*.js`
+// replaces forward slashes (windows) with backslashes Linux/Mac to make this universal
+const syncTargetFolder = `${__dirname}/*.js`.replace(/\\/g, '/')
 
 glob.sync(syncTargetFolder).forEach((router) => {
-  allRouters = { ...allRouters, ...require(router) }
+    allRouters = { ...allRouters, ...require(router) }
 })
 
 module.exports = allRouters
