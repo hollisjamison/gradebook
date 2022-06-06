@@ -24,7 +24,7 @@ const getStudentById = async (req, res) => {
                 .send({ message: 'Please provide an id to search by.' })
         }
 
-        const foundStudent = await Models.Assignments.findAll({
+        const foundStudent = await Models.Students.findAll({
             where: { id: searchedId },
         })
 
@@ -53,7 +53,7 @@ const createStudent = async (req, res) => {
                 .send({ message: 'Please provide all required fields.' })
         }
 
-        const newStudent = await Models.Assignments.create({
+        const newStudent = await Models.Students.create({
             firstName,
             lastName,
             githubUser,

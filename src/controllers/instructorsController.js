@@ -24,7 +24,7 @@ const getInstructorById = async (req, res) => {
                 .send({ message: 'Please provide an id to search by.' })
         }
 
-        const foundInstructor = await Models.Assignments.findAll({
+        const foundInstructor = await Models.Instructors.findAll({
             where: { id: searchedId },
         })
 
@@ -53,7 +53,7 @@ const createInstructor = async (req, res) => {
                 .send({ message: 'Please provide all required fields.' })
         }
 
-        const newInstructor = await Models.Assignments.create({
+        const newInstructor = await Models.Instructors.create({
             firstName,
             lastName,
             githubUser,

@@ -3,7 +3,7 @@ const Sequelize = require('sequelize')
 
 const sql_string = fs.readFileSync(__dirname + '/../../setup.sql', 'utf8');
 
-const sequelize = new Sequelize('MySQL', 'root', 'password', {
+const sequelize = new Sequelize('mysql', 'root', 'password', {
   host: 'localhost',
   dialect: 'mysql',
   dialectOptions: {
