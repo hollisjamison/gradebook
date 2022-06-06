@@ -127,6 +127,8 @@ const addInstructorToCohort = async (req, res) => {
     }
 }
 
+
+
 const getAllCohorts = async (req, res) => {
     try {
         const allCohorts = await Models.Cohorts.findAll({
@@ -134,7 +136,12 @@ const getAllCohorts = async (req, res) => {
             include: [
                 {
                     model: Models.Students,
-                    attributes: ['id', 'firstName', 'lastName', 'githubUser'],
+                    exclude: [
+                        'createdAt',
+                        'deletedAt',
+                        'updatedAt',
+                        'deletedAt',
+                    ],
                 },
                 {
                     model: Models.Assignments,
