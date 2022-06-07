@@ -7,17 +7,17 @@ const CohortsModel = require('./CohortsModel')
 const GradesModel = require('./GradesModel')
 const CohortsAssignmentsModel = require('./CohortsAssignmentsModel')
 const CohortsInstructorsModel = require('./CohortsInstructorsModel')
+const config = require('../configs/sequelize')
 
-const connection = new Sequelize(
-    'gradebook',
-    'gradebook_user',
-    'gradebookP@ss',
-    {
-        host: 'localhost',
-        dialect: 'mysql',
-        logging: (message) => logger.info(message),
-    }
-)
+const environment = process.env.NODE_ENV || 'development'
+
+const { database, username, password, host, dialect } = config[environment]
+
+const connection = new Sequelize(database, username, password, {
+    host: host,
+    dialect: dialect,
+    logging: (message) => logger.info(message),
+})
 
 const Instructors = InstructorsModel(connection, Sequelize)
 const Assignments = AssignmentsModel(connection, Sequelize)

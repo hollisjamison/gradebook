@@ -127,8 +127,6 @@ const addInstructorToCohort = async (req, res) => {
     }
 }
 
-
-
 const getAllCohorts = async (req, res) => {
     try {
         const allCohorts = await Models.Cohorts.findAll({

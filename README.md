@@ -1,4 +1,3 @@
-
 # Gradebook App
 
 ## Description
@@ -6,28 +5,51 @@
 This is an example application for Javascript students. It is an API for a boot camp grading platform. It utilizes Sequelize, MySQL, Express, and Javascript.
 
 ## Setup 1 (MySQL Local Installation)
+
 ### Step 1: Clone repo and install dependencies
+
     git clone https://github.com/hollisjamison/gradebook
     cd gradebook
     npm install
-### Step 2: Run setup.sql in MySQL Workbench
-### Step 3: Start the application
+
+### Step 2: Create a database and user for the application
+    drop database if exists gradebook;
+
+    CREATE DATABASE gradebook;
+
+    DROP USER IF EXISTS 'gradebook_user'@'%';
+
+    CREATE USER IF NOT EXISTS 'gradebook_user'@'%' IDENTIFIED BY 'gradebookP@ss';
+
+    GRANT ALL ON gradebook.* TO 'gradebook_user'@'%';
+
+### Step 3: Create a .env with your credentials using the sample.env as an example
+
+## Step 4: Migrate the DB then start the app
+    npm run dev:migrate
     npm run dev
 
 ## Setup 2 (Docker MySQL)
-### Step 1: Setup repo, setup Docker database, then run the app
+
+### Step 1: Create a .env with your desired credentials using the sample.env as an example.
+
+### Step 2: Setup repo, setup Docker database, then run the app
+
     git clone https://github.com/hollisjamison/gradebook
     cd gradebook
     npm install
-    npm run docker:db:up
     npm run docker:db:init
+    npm run dev:migrate
     npm run dev
 
 ## Data Map (ERD)
-![ERD](/image.png?raw=true "ERD")
+
+![ERD](/image.png?raw=true 'ERD')
 
 ## API Endpoints
+
 ### /api/instructors
+
 **GET /api/instructors**\
 Gets all instructors
 
@@ -44,6 +66,7 @@ Deletes the provided instructor
 Updates the provided instructor
 
 ### /api/students
+
 **GET /api/students**\
 Gets all students
 
@@ -60,6 +83,7 @@ Deletes the provided student
 Updates the provided student
 
 ### /api/students
+
 **GET /api/students**\
 Gets all students
 
@@ -76,6 +100,7 @@ Deletes the provided student
 Updates the provided student
 
 ### /api/assignments
+
 **GET /api/assignments**\
 Gets all assignments
 
@@ -98,6 +123,7 @@ Deletes the provided assignment
 Updates the provided assignment
 
 ### /api/cohorts
+
 **GET /api/cohorts**\
 Gets all cohorts
 
@@ -126,6 +152,7 @@ Deletes the provided cohort
 Updates the provided cohort
 
 ### /api/grades
+
 **GET /api/grades**\
 Gets all grades
 
@@ -146,4 +173,3 @@ Deletes the provided grade
 
 **PUT /api/grades**\
 Updates the provided grade
-
