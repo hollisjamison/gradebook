@@ -6,7 +6,7 @@ let allControllers = {}
 const syncTargetFolder = `${__dirname}/*.js`.replace(/\\/g, '/')
 
 glob.sync(syncTargetFolder).forEach((controller) => {
-    allControllers = { ...allControllers, ...require(controller) }
+  allControllers = { ...allControllers, ...require(controller) }
 })
 
 module.exports = allControllers

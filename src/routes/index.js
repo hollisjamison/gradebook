@@ -6,7 +6,7 @@ let allRouters = {}
 const syncTargetFolder = `${__dirname}/*.js`.replace(/\\/g, '/')
 
 glob.sync(syncTargetFolder).forEach((router) => {
-    allRouters = { ...allRouters, ...require(router) }
+  allRouters = { ...allRouters, ...require(router) }
 })
 
 module.exports = allRouters

@@ -14,9 +14,9 @@ const environment = process.env.NODE_ENV || 'development'
 const { database, username, password, host, dialect } = config[environment]
 
 const connection = new Sequelize(database, username, password, {
-    host: host,
-    dialect: dialect,
-    logging: (message) => logger.info(message),
+  host: host,
+  dialect: dialect,
+  logging: (message) => logger.info(message),
 })
 
 const Instructors = InstructorsModel(connection, Sequelize)
@@ -25,16 +25,16 @@ const Cohorts = CohortsModel(connection, Sequelize)
 const Students = StudentsModel(connection, Sequelize, Cohorts)
 const Grades = GradesModel(connection, Sequelize, Assignments, Students)
 const CohortsAssignments = CohortsAssignmentsModel(
-    connection,
-    Sequelize,
-    Cohorts,
-    Assignments
+  connection,
+  Sequelize,
+  Cohorts,
+  Assignments
 )
 const CohortsInstructors = CohortsInstructorsModel(
-    connection,
-    Sequelize,
-    Cohorts,
-    Instructors
+  connection,
+  Sequelize,
+  Cohorts,
+  Instructors
 )
 
 // Cohorts to Students: one to many
@@ -68,11 +68,11 @@ Assignments.belongsToMany(Cohorts, { through: CohortsAssignments })
 // CohortsAssignments.belongsToMany(Cohorts)
 
 module.exports = {
-    Instructors,
-    Assignments,
-    Cohorts,
-    Students,
-    Grades,
-    CohortsAssignments,
-    CohortsInstructors,
+  Instructors,
+  Assignments,
+  Cohorts,
+  Students,
+  Grades,
+  CohortsAssignments,
+  CohortsInstructors,
 }

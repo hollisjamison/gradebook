@@ -19,5 +19,5 @@ app.use('/api/students', Routers.studentsRouter)
 app.all('*', (req, res) => res.status(404).send('Not found!'))
 
 app.listen(3333, () => {
-    logger.info('Listening on http://localhost:3333')
+  logger.info('Listening on http://localhost:3333')
 })

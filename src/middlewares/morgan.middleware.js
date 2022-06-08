@@ -2,17 +2,17 @@ const morgan = require('morgan')
 const logger = require('../utils/logger')
 
 const stream = {
-    write: (message) => logger.http(message),
+  write: (message) => logger.http(message),
 }
 
 const skip = () => {
-    const env = process.env.NODE_ENV || 'development'
-    return env !== 'development'
+  const env = process.env.NODE_ENV || 'development'
+  return env !== 'development'
 }
 
 const morganMiddleware = morgan(
-    ':date[iso] :remote-addr :method :url :status :res[content-length] - :response-time ms',
-    { stream, skip }
+  ':date[iso] :remote-addr :method :url :status :res[content-length] - :response-time ms',
+  { stream, skip }
 )
 
 module.exports = morganMiddleware

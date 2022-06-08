@@ -13,6 +13,7 @@ This is an example application for Javascript students. It is an API for a boot 
     npm install
 
 ### Step 2: Create a database and user for the application
+
     drop database if exists gradebook;
 
     CREATE DATABASE gradebook;
@@ -26,6 +27,7 @@ This is an example application for Javascript students. It is an API for a boot 
 ### Step 3: Create a .env with your credentials using the sample.env as an example
 
 ## Step 4: Migrate the DB then start the app
+
     npm run dev:migrate
     npm run dev
 

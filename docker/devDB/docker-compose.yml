@@ -1,17 +1,17 @@
 version: '2'
 services:
-    mysql:
-        container_name: mysql
-        restart: always
-        image: mysql:latest
-        environment:
-            MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
-            MYSQL_DATABASE: $DB_DATABASE
-            MYSQL_USER: $DB_USERNAME
-            MYSQL_PASSWORD: $DB_PASSWORD
-        ports:
-            - '3306:3306'
-        volumes:
-            - my-datavolume:/var/lib/mysql
+  mysql:
+    container_name: mysql
+    restart: always
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_DATABASE
+      MYSQL_USER: $DB_USERNAME
+      MYSQL_PASSWORD: $DB_PASSWORD
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-datavolume:/var/lib/mysql
 volumes:
-    my-datavolume:
+  my-datavolume:
